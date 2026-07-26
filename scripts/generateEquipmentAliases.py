@@ -212,7 +212,7 @@ def main():
         # Radiant oathplate variants
         elif re.match(r"^Radiant", item['name']):
             handle_base_variant(all_items, item, item['name'].replace("Radiant ", "").capitalize(), '')
-        elif re.match("^Black mask", item['name']) and item['version'] != "(10)":
+        elif re.match("^Black mask", item['name']):
             handle_base_variant(all_items, item, item['name'], ['(10)'])
         elif item['name'] == "Void seal" and item['version'] != "(8)":
             handle_base_variant(all_items, item, item['name'], ['(8)'])
