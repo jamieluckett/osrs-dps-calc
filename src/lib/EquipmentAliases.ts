@@ -12,6 +12,8 @@ const equipmentAliases = {
   1123: [2607, 23392, 23395, 23398, 23401, 23404, 2599], // Adamant platebody
   1073: [2609, 2601], // Adamant platelegs
   1091: [3475, 3474], // Adamant plateskirt
+  9772: [13341], // Agility cape#Trimmed
+  9771: [13340], // Agility cape#Untrimmed
   4708: [4860, 4856, 4859, 4858, 4857, 30543, 30519, 30537, 30531, 30525, 30445], // Ahrim's hood#Undamaged
   4714: [4878, 4874, 4877, 4876, 4875, 30547, 30523, 30541, 30535, 30529, 30449], // Ahrim's robeskirt#Undamaged
   4712: [4872, 4868, 4871, 4870, 4869, 30545, 30521, 30539, 30533, 30527, 30447], // Ahrim's robetop#Undamaged

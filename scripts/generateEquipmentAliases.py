@@ -216,7 +216,13 @@ def main():
             handle_base_variant(all_items, item, item['name'], ['(10)'])
         elif item['name'] == "Void seal" and item['version'] != "(8)":
             handle_base_variant(all_items, item, item['name'], ['(8)'])
+        # Ring of suffering (i) and (ri) (NMZ/EA/SW)
         elif re.match(r"Ring of suffering \(r?i\)", item["name"]):
+            handle_base_variant(all_items, item, item['name'], [item['version']])
+        # Agility cape equipped and unequipped variants
+        # NOTE: It's not really possible to ever have the unequipped variants come through in a sync
+        #       but this'll stop duplicate entries appearing in the equipment search
+        elif re.match(r"^Agility cape", item["name"]):
             handle_base_variant(all_items, item, item['name'], [item['version']])
 
     mapping_dict = {}
