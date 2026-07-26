@@ -34,7 +34,7 @@ def getEquipmentData():
         query = {
             'action': 'bucket',
             'format': 'json',
-            'query': 
+            'query':
             (
                 f"bucket('infobox_item')"
                 f".select({fields_csv})"
@@ -81,7 +81,7 @@ EquipmentAliases = namedtuple('EquipmentAliases', ['base_name', 'base_version', 
 def handle_base_variant(all_items, variant_item, base_name, base_versions):
     global data
     base_variant = next((x for x in all_items if x['name'] == base_name and x['version'] in base_versions), None)
-    if base_variant:
+    if base_variant and base_variant['id'] != variant_item['id']:
         data.setdefault(base_variant['id'], EquipmentAliases(base_name, base_variant['version'], [])).alias_ids.append(variant_item['id'])
 
 one_off_renames = {
@@ -216,6 +216,8 @@ def main():
             handle_base_variant(all_items, item, item['name'], ['(10)'])
         elif item['name'] == "Void seal" and item['version'] != "(8)":
             handle_base_variant(all_items, item, item['name'], ['(8)'])
+        elif re.match(r"Ring of suffering \(r?i\)", item["name"]):
+            handle_base_variant(all_items, item, item['name'], [item['version']])
 
     mapping_dict = {}
     for k, v in sorted(data.items(), key=lambda item: item[1].base_name):
